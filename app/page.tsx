@@ -24,14 +24,17 @@ export default function Home() {
         {/* Cards */}
         <section className="grid md:grid-cols-3 gap-6">
           <TopicCard
+            href="/use-state"
             title="useState"
             description="컴포넌트 내부 상태를 관리하는 기본 Hook"
           />
           <TopicCard
+            href="/use-effect"
             title="useEffect"
             description="사이드 이펙트를 처리하는 Hook"
           />
           <TopicCard
+            href="/use-ref"
             title="useRef"
             description="DOM 참조 및 값 유지"
           />
