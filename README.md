@@ -1,260 +1,157 @@
-# 🧠 React Study Playground
+# 🧠 React Study Playground - Progress Update
 
 > A minimal, documentation-style interactive React study website.
 
 ---
 
-## 📌 Project Summary
+## 📌 Project Summary (Updated)
 
 **React Study Playground**는  
 React의 주요 개념과 기능을 간결한 설명과 코드 예제를 통해 학습할 수 있도록 설계된 웹 애플리케이션입니다.
 
-이 프로젝트의 목적은:
+### 이번 업데이트 기준 목적:
 
 - React 핵심 개념을 구조적으로 정리
 - 공식 문서 스타일의 UI로 가독성 강화
 - 기능별 독립적 학습 구조 구성
+- 실습 가능한 Interactive Example 추가
 - 포트폴리오용으로 활용 가능한 완성도 높은 설계
 
 ---
 
-# 🏗 Project Architecture
+# 🏗 Project Architecture (Updated)
 
 ## 📂 Directory Structure
 
-현재 프로젝트는 App Router 기반 구조를 사용하며,  
-기능 확장성을 고려해 명확히 분리된 구조로 설계되었습니다.
-
 ```
 app/
- ├─ (study)/          # 메인 학습 페이지 그룹 (Route Group)
+ ├─ (study)/          
  │   ├─ page.tsx
  │   ├─ layout.tsx
+ │   ├─ use-state/
+ │   │   └─ page.tsx
+ │   ├─ use-effect/
+ │   │   └─ page.tsx
  │   └─ ...
  │
- ├─ components/       # 재사용 UI 컴포넌트
+ ├─ components/       
  │   ├─ ui/
  │   ├─ layout/
  │   └─ ...
  │
- ├─ hooks/            # 커스텀 React Hooks
+ ├─ hooks/            
  │
- ├─ lib/              # 유틸 함수 / 공통 로직
+ ├─ lib/              
  │
- ├─ types/            # TypeScript 타입 정의
+ ├─ types/            
  │
  └─ globals.css
 ```
 
-### ✅ 특징
+### ✅ 추가/변경 사항
 
-- Route Group `(study)` 사용 → URL 구조는 깔끔하게 유지
-- UI / 로직 / 타입 분리 설계
-- 확장성 고려한 구조
-
----
-
-# 🎨 Design System
-
-## 🧩 Core Concept
-
-> Minimal + Official Documentation Style
-
-디자인 방향은 다음과 같습니다:
-
-- 과한 애니메이션 제거
-- 구조 중심의 레이아웃
-- 정보 전달 중심 UI
-- 공식 문서와 유사한 안정적인 느낌
+- 각 React 기능별 route group 생성 (use-state, use-effect, use-ref 등)
+- Interactive Example 컴포넌트 함수화 및 재사용 가능하게 설계
+- 기존 UI/Logic/Types 분리 구조 유지
 
 ---
 
-## 🌑 Color System
+# 🎨 Design System (Updated)
 
-### Background
+- **Color / Layout / Typography** 모두 기존 설정 유지
+- **Interactive Example 카드** 디자인을 모든 예제 통일
+- State, Ref, Effect 등 예제 모두 동일 스타일로 배치
 
-- `bg-neutral-950`
-- 다크 기반, 눈에 피로감 적은 톤
-
-### Text
-
-- `text-neutral-200`
-- 기본 텍스트
-- 부가 텍스트는 `text-neutral-400`
-
-### Border
-
-- `border-neutral-800`
-- 얇고 절제된 구분선
-
-### Accent (Primary Point Color)
-
-- `green-400` 계열
-- 네온 느낌이지만 glow 효과 없음
-- 그림자 / 번짐 효과 사용하지 않음
-
----
-
-## 🧱 Layout Philosophy
-
-- max-width 기반 중앙 정렬
-- 충분한 padding과 whitespace 유지
-- 명확한 section 구분
-- 왼쪽 정렬 기반 정보 배치
+> 코드 블럭 내부에 React 예제 코드를 쓸 때는, 내부 코드용 \`\\\`\`tsx\` 이스케이프 필요
 
 예시:
 
-```
-<body className="bg-neutral-950 text-neutral-200">
-  <main className="max-w-5xl mx-auto px-6 py-12">
-    {children}
-  </main>
-</body>
+```tsx
+function StateCounter() {
+  const [count, setCount] = useState(0)
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  )
+}
 ```
 
 ---
 
 # 🛠 Tech Stack
 
-## Core
-
 - Next.js (App Router)
-- React
-- TypeScript
-
-## Styling
-
-- Tailwind CSS v3
-- PostCSS
-- Autoprefixer
-
-## State / Logic
-
-- React 기본 Hooks
-- Custom Hooks (app/hooks)
-
-## Architecture
-
-- Feature-based structure
-- Route Group 사용
-- UI / Logic / Types 분리 설계
+- React / TypeScript
+- Tailwind CSS v3 / PostCSS / Autoprefixer
+- React 기본 Hooks + Custom Hooks
+- Feature-based structure / Route Group 사용
 
 ---
 
 # ✅ Current Implementation Status
 
-## 1️⃣ 프로젝트 생성 완료
+## 1️⃣ 프로젝트 초기화
 
-- Next.js 초기화 완료
-- Tailwind v3 세팅 완료
+- Next.js + Tailwind 세팅 완료
 - GitHub Repository 연결 완료
 
----
-
-## 2️⃣ 글로벌 레이아웃 설정 완료
+## 2️⃣ 글로벌 레이아웃
 
 - 다크 테마 적용
 - 중앙 정렬 구조 확정
-- 기본 타이포 시스템 설정
 - 공통 컨텐츠 영역 구성 완료
 
----
+## 3️⃣ 폴더 구조
 
-## 3️⃣ 기본 폴더 구조 설계 완료
+- components/, hooks/, lib/, types/, (study)/ route group 분리
 
-- components/
-- hooks/
-- lib/
-- types/
-- (study)/ route group
+## 4️⃣ React 기능 페이지 구현
 
-확장 가능 구조 설계 완료.
+### useState
+
+- 기본 카운터 예제
+- 객체 State 예제
+- Functional Update vs Direct Update 비교
+- Reset 기능 포함
+
+### useEffect
+
+- Count 변화에 따른 Effect Demo
+- Timer & Cleanup 예제
+- Strict Mode effect 2회 실행 시연
+- Real World Example: Likes 버튼 (effect로 메시지 자동 갱신)
+
+### useRef
+
+- State vs Ref 예제
+- Increment / Reset Ref 값
+- Update 버튼으로 강제 렌더링
+- 화면 갱신 없이 Ref 값 관리
+
+> Interactive Example 모두 카드 형태로 통일, 버튼 스타일 통일, 설명과 메시지 자연스럽게 배치
 
 ---
 
 # 🚧 Next Implementation Steps
 
-## 1️⃣ Hero Section
-
-구성 예정:
-
-- 프로젝트 목적 설명
-- 한 줄 슬로건
-- 공식 문서 느낌 타이포 구조
-
----
-
-## 2️⃣ Section Divider Component
-
-목표:
-
-- 왼쪽 짧은 가로 라인
-- 오른쪽 섹션 텍스트
-- 미니멀한 문서 구분 느낌
-
-예상 형태:
-
-```
-────────  Core Concepts
-```
-
----
-
-## 3️⃣ Topic Card Grid
-
-각 React 기능을 카드로 구성:
-
-- 제목
-- 짧은 설명
-- hover 시 border 색상 변경
-- 상세 페이지 이동
-
-예시 구조:
-
-```
-<div className="border border-neutral-800 hover:border-green-400 transition-colors">
-  <h3>useState</h3>
-  <p>State를 관리하는 기본 Hook</p>
-</div>
-```
-
----
-
-## 4️⃣ Feature Detail Pages
-
-각 React 기능에 대해:
-
-- 개념 요약
-- 코드 예제
-- 필요 시 간단한 시각적 데모
-
-예상 구조:
-
-```
-app/(study)/use-state/page.tsx
-app/(study)/use-effect/page.tsx
-```
-
----
-
-# 🧠 Planned Topics
-
-- useState
-- useEffect
-- useRef
-- useContext
-- useMemo
-- useCallback
-- Custom Hooks
-- Props vs State
-- Re-rendering
-- Component Lifecycle
+1. Hero Section
+   - 프로젝트 목적, 슬로건, 공식 문서 느낌 UI
+2. Section Divider Component
+   - 왼쪽 짧은 가로 라인 + 오른쪽 섹션 텍스트
+3. Topic Card Grid
+   - 제목, 짧은 설명, hover 효과, 상세 페이지 이동
+4. Feature Detail Pages
+   - 개념 요약, 코드 예제, 시각적 데모
+5. 추가 React 기능 구현
+   - useContext, useMemo, useCallback, Custom Hooks 등
 
 ---
 
 # 📈 Future Enhancements
 
-- 코드 하이라이팅 추가
+- 코드 하이라이팅
 - 검색 기능
 - 카테고리 분류
 - 다크 문서 UI 고도화
@@ -264,20 +161,7 @@ app/(study)/use-effect/page.tsx
 
 # 🎯 Project Goal
 
-이 프로젝트는 단순한 예제 모음이 아니라  
-"React를 구조적으로 이해할 수 있는 학습 공간"을 만드는 것을 목표로 합니다.
+> "React를 구조적으로 이해할 수 있는 학습 공간" 제공
 
-포트폴리오에서:
-
-- 설계 능력
-- 구조화 능력
-- UI 감각
-- 기술 이해도
-
-를 보여주는 프로젝트로 발전시키는 것이 최종 목표입니다.
-
----
-
-# 📦 Project Name
-
-**react-study**
+- 포트폴리오에서 설계, 구조화, UI 감각, 기술 이해도 강조 가능
+- Interactive Example로 직관적 학습 가능
